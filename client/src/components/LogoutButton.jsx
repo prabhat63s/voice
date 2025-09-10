@@ -29,7 +29,7 @@ export default function LogoutButton() {
     return (
         <button
             onClick={handleLogout}
-            className="px-4 py-1.5 w-full md:w-fit flex items-center gap-1 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition"
+            className="px-4 py-1.5 w-full flex items-center gap-1 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition"
         >
             <FiLogOut className="w-4 h-4" />
             Logout
