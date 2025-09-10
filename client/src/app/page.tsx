@@ -6,6 +6,25 @@ import LogoutButton from "@/components/LogoutButton";
 import { FiUser, FiInfo, FiPhone, FiHome, FiMessageCircle, FiX, FiMenu, FiMic } from "react-icons/fi";
 import { useState, useEffect, useRef } from "react";
 
+// --- Dynamic content from README / documentation ---
+const features = [
+  {
+    icon: FiMessageCircle,
+    title: "Voice Commands",
+    description: "Control apps and perform tasks just by speaking, saving you time and effort.",
+  },
+  {
+    icon: FiInfo,
+    title: "Smart Responses",
+    description: "Get instant, AI-powered responses for questions and requests.",
+  },
+  {
+    icon: FiHome,
+    title: "Seamless Integration",
+    description: "Connect with apps, services, and devices for a fully integrated assistant experience.",
+  },
+];
+
 export default function HomePage() {
   const { data: session } = useSession();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +58,6 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
       {/* Header */}
       <header className="w-full bg-white border-b border-gray-100 py-4 px-6 md:px-8 flex justify-between items-center sticky top-0 z-50">
-        {/* Logo */}
         <h1 className="text-2xl font-bold text-blue-600 flex items-center gap-2">
           <FiMic /> Voice Agent
         </h1>
@@ -86,27 +104,15 @@ export default function HomePage() {
         <button className="flex gap-2 w-fit max-w-xs justify-center bg-gray-100 hover:bg-blue-100 text-gray-800 font-medium p-3 rounded-lg transition" onClick={() => setMenuOpen(!menuOpen)}>
           <FiX />
         </button>
-        
+
         {/* Menu Links */}
-        <Link
-          href="#features"
-          className="flex gap-2 w-full max-w-xs justify-center bg-gray-100 hover:bg-blue-100 text-gray-800 font-medium py-3 rounded-lg transition"
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link href="#features" className="flex gap-2 w-full max-w-xs justify-center bg-gray-100 hover:bg-blue-100 text-gray-800 font-medium py-3 rounded-lg transition" onClick={() => setMenuOpen(false)}>
           <FiMessageCircle className="text-blue-600 text-xl" /> Features
         </Link>
-        <Link
-          href="#about"
-          className="flex gap-2 w-full max-w-xs justify-center bg-gray-100 hover:bg-blue-100 text-gray-800 font-medium py-3 rounded-lg transition"
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link href="#about" className="flex gap-2 w-full max-w-xs justify-center bg-gray-100 hover:bg-blue-100 text-gray-800 font-medium py-3 rounded-lg transition" onClick={() => setMenuOpen(false)}>
           <FiInfo className="text-blue-600 text-xl" /> About
         </Link>
-        <Link
-          href="#contact"
-          className="flex gap-2 w-full max-w-xs justify-center bg-gray-100 hover:bg-blue-100 text-gray-800 font-medium py-3 rounded-lg transition"
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link href="#contact" className="flex gap-2 w-full max-w-xs justify-center bg-gray-100 hover:bg-blue-100 text-gray-800 font-medium py-3 rounded-lg transition" onClick={() => setMenuOpen(false)}>
           <FiPhone className="text-blue-600 text-xl" /> Contact
         </Link>
 
@@ -114,10 +120,10 @@ export default function HomePage() {
         {userInitials ? (
           <div className="flex flex-col w-full items-center gap-4 mt-2">
             <div className="flex items-center gap-2">
-            <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">
-              {userInitials.toUpperCase()}
-            </div>
-              <span className="">{session?.user?.email}</span>
+              <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">
+                {userInitials.toUpperCase()}
+              </div>
+              <span>{session?.user?.email}</span>
             </div>
             <LogoutButton />
           </div>
@@ -130,10 +136,9 @@ export default function HomePage() {
         )}
       </div>
 
-
       {/* Hero Section */}
       <main className="flex flex-col items-center justify-center flex-1 bg-gradient-to-b from-blue-100 to-blue-300 p-6 py-12 text-center">
-        <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4">Your AI-Powered Voice Assistant</h2>
+        <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4">Your AI-Powered Voice Agent</h2>
         <p className="text-gray-700 max-w-xl mb-8">
           Automate tasks, get instant answers, and interact with AI using just your voice. Experience the future of intelligent assistance today.
         </p>
@@ -164,30 +169,27 @@ export default function HomePage() {
       <section id="features" className="py-16 px-8 bg-white text-center">
         <h3 className="text-3xl font-bold mb-6 text-gray-800">Features</h3>
         <div className="text-neutral-800 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="p-6 border border-gray-200 rounded-lg hover:bg-blue-50 transition flex flex-col items-center gap-2">
-            <FiMessageCircle className="text-3xl text-blue-600" />
-            <h4 className="text-xl font-semibold mb-2">Voice Commands</h4>
-            <p>Control apps and perform tasks just by speaking, saving you time and effort.</p>
-          </div>
-          <div className="p-6 border border-gray-200 rounded-lg hover:bg-blue-50 transition flex flex-col items-center gap-2">
-            <FiInfo className="text-3xl text-blue-600" />
-            <h4 className="text-xl font-semibold mb-2">Smart Responses</h4>
-            <p>Get instant, AI-powered responses for questions and requests.</p>
-          </div>
-          <div className="p-6 border border-gray-200 rounded-lg hover:bg-blue-50 transition flex flex-col items-center gap-2">
-            <FiHome className="text-3xl text-blue-600" />
-            <h4 className="text-xl font-semibold mb-2">Seamless Integration</h4>
-            <p>Connect with apps, services, and devices for a fully integrated assistant experience.</p>
-          </div>
+          {features.map((feature, idx) => {
+            const Icon = feature.icon;
+            return (
+              <div key={idx} className="p-6 border border-gray-200 rounded-lg hover:bg-blue-50 transition flex flex-col items-center gap-2">
+                <Icon className="text-3xl text-blue-600" />
+                <h4 className="text-xl font-semibold mb-2">{feature.title}</h4>
+                <p>{feature.description}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="py-16 px-8 bg-blue-50 text-center">
         <h3 className="text-3xl font-bold mb-6 text-gray-800">About Voice Agent</h3>
-        <p className="max-w-2xl mx-auto text-gray-700">
+        <p className="max-w-6xl mx-auto text-gray-700 whitespace-pre-line">
           Voice Agent leverages the latest AI technologies to provide an intuitive voice-based assistant.
           From scheduling tasks to answering queries, it makes your digital experience smarter and faster.
+          The backend is built using Flask and OpenAI API, storing conversation history in sessions.
+          It supports context-aware responses, allowing for natural, continuous conversations with the AI.
         </p>
       </section>
 

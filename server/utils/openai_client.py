@@ -8,7 +8,7 @@ def get_response_from_openai(conversation_history: list) -> str:
     Get AI response using full conversation history
     """
     try:
-        print(f"🔍 Conversation history: {len(conversation_history)} messages")
+        # print(f"🔍 Conversation history: {len(conversation_history)} messages")
         
         response = client.chat.completions.create(
             model="gpt-4.1-mini",
