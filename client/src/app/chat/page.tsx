@@ -190,7 +190,7 @@ export default function ChatPage() {
     };
 
     return (
-        <div className="flex flex-col h-screen bg-gray-50 w-full">
+        <div className="flex flex-col h-dvh bg-gray-50 w-full">
             <header className="bg-white flex items-center justify-center p-4 relative text-xl">
                 {/* Close button */}
                 <div

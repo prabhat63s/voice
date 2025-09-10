@@ -132,9 +132,9 @@ export default function HomePage() {
 
 
       {/* Hero Section */}
-      <main className="flex flex-col items-center justify-center flex-1 bg-gradient-to-b from-blue-100 to-blue-300 p-6 text-center">
-        <h2 className="text-5xl font-bold text-gray-800 mb-4">Your AI-Powered Voice Assistant</h2>
-        <p className="text-lg text-gray-700 max-w-xl mb-8">
+      <main className="flex flex-col items-center justify-center flex-1 bg-gradient-to-b from-blue-100 to-blue-300 p-6 py-12 text-center">
+        <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4">Your AI-Powered Voice Assistant</h2>
+        <p className="text-gray-700 max-w-xl mb-8">
           Automate tasks, get instant answers, and interact with AI using just your voice. Experience the future of intelligent assistance today.
         </p>
 
@@ -164,17 +164,17 @@ export default function HomePage() {
       <section id="features" className="py-16 px-8 bg-white text-center">
         <h3 className="text-3xl font-bold mb-6 text-gray-800">Features</h3>
         <div className="text-neutral-800 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="p-6 border border-gray-100 rounded-lg hover:bg-blue-50 transition flex flex-col items-center gap-2">
+          <div className="p-6 border border-gray-200 rounded-lg hover:bg-blue-50 transition flex flex-col items-center gap-2">
             <FiMessageCircle className="text-3xl text-blue-600" />
             <h4 className="text-xl font-semibold mb-2">Voice Commands</h4>
             <p>Control apps and perform tasks just by speaking, saving you time and effort.</p>
           </div>
-          <div className="p-6 border border-gray-100 rounded-lg hover:bg-blue-50 transition flex flex-col items-center gap-2">
+          <div className="p-6 border border-gray-200 rounded-lg hover:bg-blue-50 transition flex flex-col items-center gap-2">
             <FiInfo className="text-3xl text-blue-600" />
             <h4 className="text-xl font-semibold mb-2">Smart Responses</h4>
             <p>Get instant, AI-powered responses for questions and requests.</p>
           </div>
-          <div className="p-6 border border-gray-100 rounded-lg hover:bg-blue-50 transition flex flex-col items-center gap-2">
+          <div className="p-6 border border-gray-200 rounded-lg hover:bg-blue-50 transition flex flex-col items-center gap-2">
             <FiHome className="text-3xl text-blue-600" />
             <h4 className="text-xl font-semibold mb-2">Seamless Integration</h4>
             <p>Connect with apps, services, and devices for a fully integrated assistant experience.</p>
